@@ -75,7 +75,7 @@ int ikili_arama(int dizi[], int BOYUT, int search, int ilk_ind, int son_ind) {
 }
 
 int main() {
-	int A[] = {55, 12, 17, 4, 90, 21, 63, 63, 18};
+	int A[] = {55, 12, 17, 4, 90, 21, 34, 63, 18};
 	int N = sizeof(A) / sizeof(A[0]);
 
 	int aranan, sonuc;
