@@ -4,9 +4,9 @@
 // 2420171018
 // https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=BozfxvKaB1
 
-// kucukten buyuge
-// araya eklemeli siralama (insertion sort) 
-// ikili arama (binary search)
+// kucukten -> buyuge araya eklemeli siralama + ikili arama
+// Aciklama: Dizi artan siraya getirilir; girilen deger ikili arama ile bulunur.
+
 
 // index kisaltmasi olarak literaturde IDX kullanilir
 void dizi_yazdir(int dizi[], int basIDX, int sonIDX) {
@@ -17,6 +17,11 @@ void dizi_yazdir(int dizi[], int basIDX, int sonIDX) {
 	printf("\n");
 }
 
+// Araya eklemeli siralama (kucukten -> buyuge)
+//   Parametreler:
+//     dizi     -> arama yapilacak dizi (ham)
+//     BOYUT    -> eleman sayisi
+// Not: O(n^2) zamanda calisir.
 void arayaeklemeli_siralamaKB(int dizi[], int BOYUT) {
 	int i, j;
 	int anahtar;
@@ -25,7 +30,7 @@ void arayaeklemeli_siralamaKB(int dizi[], int BOYUT) {
 		anahtar = dizi[i];
 
 		for (j = i - 1; (j >= 0) && (anahtar < dizi[j]); j--) {
-			dizi[j + 1] = dizi[j];    // saga kaydirma (shift)
+			dizi[j + 1] = dizi[j];    // saga kaydirma (index shift)
 		}
 
 		dizi[j + 1] = anahtar;
@@ -35,6 +40,16 @@ void arayaeklemeli_siralamaKB(int dizi[], int BOYUT) {
 	}
 }
 
+
+//   Ikili arama (binary search)
+//   Parametreler:
+//     dizi     -> arama yapilacak dizi (sirali)
+//     BOYUT    -> eleman sayisi
+//     search   -> aranan deger
+//     ilk_ind  -> araligin baslangic indisi
+//     son_ind  -> araligin bitis indisi
+//   Donus: bulunduysa indis, bulunamadiysa -1
+//   Not: O(log n) zamanda calisir.
 int ikili_arama(int dizi[], int BOYUT, int search, int ilk_ind, int son_ind) {
 	int orta_ind = (ilk_ind + son_ind) / 2;
 
@@ -88,7 +103,3 @@ int main() {
 
 	return 0;
 }
-
-
-
-
